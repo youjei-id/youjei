@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>youjei</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shrikhand&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icon (Font Awesome) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- style -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="asset/youjeilogo.svg" />
+    <link rel="apple-touch-icon" href="asset/youjeilogo.svg" />
+  </head>
+  <body class="detail-produk">
+    <!-- foto -->
+    <div class="slider-container">
+      <div class="slides">
+        <img src="asset/3flowers.jpg" alt="" class="slide" />
+        <img src="asset/belakangpolos.jpg" alt="" class="slide" />
+        <img src="asset/detail3flowers.JPG" alt="" class="slide" />
+        <img src="asset/necklabel.JPG" alt="" class="slide" />
+        <img src="asset/sidelabel.jpg" alt="" class="slide" />
+      </div>
+
+      <div class="slider-nav">
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <div id="dotsContainer" class="dots-container"></div>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+      </div>
+    </div>
+    <!-- deskripsi -->
+    <div class="product-details">
+      <h2 id="product-name">3 FLOWERS</h2>
+      <div class="price-container">
+        <h3 id="product-price" class="price">Rp 139.000</h3>
+        <small class="disclaimer">*harga belum termasuk ongkir</small>
+      </div>
+      <p class="section-title">Size</p>
+      <div class="size-options">
+        <span class="size-circle">M</span>
+        <span class="size-circle">L</span>
+        <span class="size-circle">XL</span>
+      </div>
+
+      <div class="description">
+        <div class="material">
+          <h3>Material</h3>
+          <ul style="list-style-type: &quot;- &quot;; padding-left: 20px">
+            <li>Cotton 16's</li>
+            <li>Cutting Regular Fit</li>
+            <li>Sablon Plastisol</li>
+          </ul>
+        </div>
+        <div class="perawatan">
+          <h3>Cara perawatan</h3>
+          <ul style="list-style-type: &quot;- &quot;; padding-left: 20px">
+            <li>Jangan langsung disetrika pada bagian sablon</li>
+            <li>
+              Untuk pemakaian lebih lama disarankan pencucian menggunakan tangan
+            </li>
+          </ul>
+        </div>
+        <div class="tabelukuran">
+          <h3 class="section-title">Size Chart</h3>
+          <table class="size-table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th>M</th>
+                <th>L</th>
+                <th>XL</th>
+              </tr>
+            </thead>
+            <tbody id="size-table-body">
+              <tr>
+                <td>Width</td>
+                <td>54</td>
+                <td>56</td>
+                <td>58</td>
+              </tr>
+              <tr>
+                <td>Length</td>
+                <td>68</td>
+                <td>70.5</td>
+                <td>73</td>
+              </tr>
+              <tr>
+                <td>Sleve</td>
+                <td>23</td>
+                <td>25.5</td>
+                <td>28</td>
+              </tr>
+            </tbody>
+          </table>
+          <small class="disclaimer"
+            >*kemungkinan ada selisih 1-2cm antara size chart dengan
+            fisik</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <div class="footer-icons">
+        <!-- WhatsApp -->
+        <a
+          href="https://wa.me/62881080151102"
+          target="_blank"
+          class="footer-link"
+        >
+          <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Instagram -->
+        <a
+          href="https://instagram.com/youjei.id"
+          target="_blank"
+          class="footer-link"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <!-- Shopee (Gunakan icon keranjang/store jika icon shopee tidak tersedia di free version) -->
+        <a
+          href="https://shopee.co.id/youjei"
+          target="_blank"
+          class="footer-link"
+        >
+          <i class="fas fa-shopping-bag"></i>
+        </a>
+      </div>
+      <p class="copyright">&copy; 2026 youjei</p>
+    </footer>
+
+    <!-- script -->
+    <script>
+      let currentIndex = 0;
+      const slides = document.querySelector(".slides");
+      const dotsContainer = document.getElementById("dotsContainer");
+      const allSlides = document.querySelectorAll(".slide");
+      const totalSlides = allSlides.length;
+
+      // --- FUNGSI OTOMATIS TAMBAH DOTS ---
+      function generateDots() {
+        for (let i = 0; i < totalSlides; i++) {
+          const dot = document.createElement("span");
+          dot.classList.add("dot");
+          if (i === 0) dot.classList.add("active"); // Dot pertama aktif
+          dot.onclick = () => currentSlide(i);
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      // Jalankan fungsi buat dots
+      generateDots();
+
+      // Ambil ulang semua dot yang baru saja dibuat
+      const dots = document.querySelectorAll(".dot");
+
+      function updateSlider() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentIndex);
+        });
+      }
+
+      function changeSlide(direction) {
+        currentIndex += direction;
+        if (currentIndex >= totalSlides) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = totalSlides - 1;
+        updateSlider();
+      }
+
+      function currentSlide(index) {
+        currentIndex = index;
+        updateSlider();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+:root {
+  --primary: #022b00;
+  --second: #b50000;
+  --border: #eee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+body {
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  width: 50px;
+  display: block;
+}
+h1 {
+  font-family: "Shrikhand", cursive;
+  letter-spacing: 2px;
+}
+/* dissplay produk */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 0 15px;
+}
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+.foto-produk {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.foto-produk img {
+  width: 100%;
+  height: auto;
+}
+
+.product-info {
+  font-size: 10px;
+  text-align: center;
+  padding: 10px;
+  color: var(--primary);
+}
+
+.price {
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--second);
+}
+
+/* proodukkkkkkk di halaman baru */
+.detail-produk {
+  margin: 15px;
+}
+.slider-container {
+  max-width: 500px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.slide {
+  min-width: 100%; /* Wajib ada agar slider tidak hancur */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.slide {
+  min-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Navigasi di Bawah */
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  gap: 20px;
+}
+
+.slider-nav button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+/* Titik Indikator */
+.dots-container {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot.active {
+  background-color: var(--primary);
+  transform: scale(1.2);
+}
+
+/* ================================================== */
+.disclaimer {
+  display: block;
+  font-size: 10px;
+  color: #888;
+  margin-top: -10px; /* Merapatkan ke elemen di atasnya */
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.section-title {
+  margin: 20px 0 10px;
+}
+
+.size-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.size-circle {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.size-circle:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Tabel Size Chart */
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 0.85rem;
+}
+
+.size-table th,
+.size-table td {
+  border: 1px solid #959595; /* Garis tipis */
+  padding: 10px;
+  text-align: center;
+}
+
+.size-table th {
+  background-color: #e3e3e3;
+  font-weight: 500;
+}
+
+.price {
+  color: var(--second);
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.product-details {
+  text-align: center;
+}
+
+.description {
+  text-align: left;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+/* footer */
+.main-footer {
+  background-color: white; /* Atau warna sesuai brand Anda */
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  margin-top: 100px;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-evenly; /* Jarak antar ikon seimbang */
+  align-items: center;
+  max-width: 400px; /* Batasi lebar agar tidak terlalu jauh berpencar di layar lebar */
+  margin: 15px auto 0; /* Tengah secara horizontal */
+}
+
+.footer-link {
+  font-size: 28px; /* Ukuran ikon */
+  color: var(--primary); /* Menggunakan warna hijau brand Anda */
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--second); /* Warna merah saat disentuh mouse */
+  transform: translateY(-5px); /* Efek melompat sedikit ke atas */
+}
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin-top: 25px;
+  letter-spacing: 1px;
+}
